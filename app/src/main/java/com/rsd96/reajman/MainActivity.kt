@@ -2,6 +2,8 @@ package com.rsd96.reajman
 
 import android.content.Intent
 import android.os.Bundle
+import android.support.design.widget.TabLayout
+import android.support.v4.content.ContextCompat
 import android.support.v7.app.AppCompatActivity
 import android.view.View
 import com.google.firebase.auth.FirebaseAuth
@@ -38,29 +40,33 @@ class MainActivity : AppCompatActivity() {
 
         setupViewPager()
 
-//        tabs.addOnTabSelectedListener(object: TabLayout.OnTabSelectedListener {
-//
-//            override fun onTabSelected(tab: TabLayout.Tab?) {
-//
-//                when(tab?.position) {
-////                    0 -> tab?.setIcon(R.drawable.ic_tab_alert_selected)
-////                    1 -> tab?.setIcon(R.drawable.ic_alert_feed)
-////                    2 -> tab?.setIcon(R.drawable.ic_tab_chat_selected)
-//                }
-//
-//            }
-//
-//            override fun onTabUnselected(tab: TabLayout.Tab?) {
-//                when(tab?.position) {
-//                    /*0 -> tab?.setIcon(R.drawable.ic_tab_alert_unselected)
-//                    1 -> tab?.setIcon(R.drawable.ic_tab_alert_feed_unselected)
-//                    2 -> tab?.setIcon(R.drawable.ic_tab_chat_unselected)*/
-//                }
-//            }
-//
-//            override fun onTabReselected(tab: TabLayout.Tab?) {
-//            }
-//        })
+        tabs.setTabTextColors(
+                ContextCompat.getColor(this, android.R.color.black),
+                ContextCompat.getColor(this, android.R.color.black)
+        );
+
+
+        tabs.addOnTabSelectedListener(object: TabLayout.OnTabSelectedListener {
+
+            override fun onTabSelected(tab: TabLayout.Tab?) {
+
+                when(tab?.position) {
+
+                }
+
+            }
+
+            override fun onTabUnselected(tab: TabLayout.Tab?) {
+                when(tab?.position) {
+                    /*0 -> tab?.setIcon(R.drawable.ic_tab_alert_unselected)
+                    1 -> tab?.setIcon(R.drawable.ic_tab_alert_feed_unselected)
+                    2 -> tab?.setIcon(R.drawable.ic_tab_chat_unselected)*/
+                }
+            }
+
+            override fun onTabReselected(tab: TabLayout.Tab?) {
+            }
+        })
 
 
         fab.setOnClickListener(View.OnClickListener {
@@ -73,6 +79,7 @@ class MainActivity : AppCompatActivity() {
         adapter.addFragment(FeedFragment(), "Feed")
         adapter.addFragment(RecycleFragment(), "Recycle")
         adapter.addFragment(LeaderFragment(), "LeaderBoard")
+        adapter.addFragment(LeaderFragment(), "Events")
         viewPager.adapter = adapter
         viewPager.currentItem = 1
         tabs.setupWithViewPager(viewPager)

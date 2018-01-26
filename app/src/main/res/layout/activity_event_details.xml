@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".EventDetails"
+    android:orientation="vertical">
+
+    <ImageView
+        android:layout_marginTop="40dp"
+        android:id="@+id/DImage"
+        android:layout_gravity="center"
+        android:background="@drawable/test"
+        android:scaleType="centerCrop"
+        android:layout_width="match_parent"
+        android:layout_height="80dp" />
+
+    <com.spark.submitbutton.SubmitButton
+        android:id="@+id/sButton"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginStart="170dp"
+        android:layout_marginTop="95dp"
+        android:text="Join"
+        android:textColor="@color/gray"
+        android:textStyle="bold"
+        app:sub_btn_background="@color/white"
+        app:sub_btn_duration="1500"
+        app:sub_btn_line_color="@android:color/holo_green_dark"
+        app:sub_btn_ripple_color="@android:color/holo_green_light"
+        app:sub_btn_tick_color="@color/white"
+        android:onClick="buttonClick"
+        android:layout_marginLeft="170dp" />
+
+    <TextView
+        android:id="@+id/DText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="250dp"
+        android:text="Text"
+        android:textSize="18sp" />
+
+</RelativeLayout>
