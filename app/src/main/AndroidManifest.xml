@@ -25,6 +25,7 @@
         <activity android:name=".QRScanActivity"></activity>
         <activity android:name=".EventDetails"/>
         <activity android:name=".LeaderActivity"></activity>
+        <activity android:name=".AIActivity"/>
 
         <meta-data android:name="com.google.android.gms.vision.DEPENDENCIES" android:value="barcode"/>
     </application>

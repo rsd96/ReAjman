@@ -1,5 +1,7 @@
 <resources>
-    <string name="app_name">ReAjman</string>
+
+    <string name="api_key">d8499dbd837b328043d53c94c70ad5eb4a95e451</string>
+    <string name="app_name"></string>
 
     <string-array name="event_names">
 

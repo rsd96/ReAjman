@@ -68,6 +68,10 @@ class RecycleFragment: Fragment() {
             startActivity(Intent(activity.applicationContext, LeaderActivity::class.java))
         })
 
+        cv_ai.setOnClickListener(View.OnClickListener { view ->
+            startActivity(Intent(activity.applicationContext, AIActivity::class.java))
+        })
+
 
         lineChart.setDragEnabled(true)
         lineChart.setScaleEnabled(false)

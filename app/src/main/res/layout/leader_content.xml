@@ -26,7 +26,7 @@
                 android:visibility="gone"
                 android:layout_toEndOf="@+id/tv_content"
                 android:layout_toRightOf="@+id/tv_content"
-                android:background="@drawable/leaf"
+                android:background="@drawable/medal"
                 android:id="@+id/iv_leader" />
 
             <TextView
