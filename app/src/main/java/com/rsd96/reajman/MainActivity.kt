@@ -29,7 +29,7 @@ class MainActivity : AppCompatActivity() {
             auth!!.signInWithEmailAndPassword(email, pass).addOnCompleteListener {
                 //user.text = auth!!.currentUser!!.email
                 db.getReference("users").child(auth?.currentUser?.uid).child("user_name").setValue(userName)
-                db.getReference("users").child(auth?.currentUser?.uid).child("points").setValue(0)
+                //db.getReference("users").child(auth?.currentUser?.uid).child("points").setValue(0)
                 db.getReference("users").child(auth?.currentUser?.uid).child("lat").setValue(lat)
                 db.getReference("users").child(auth?.currentUser?.uid).child("long").setValue(long)
 
@@ -71,8 +71,8 @@ class MainActivity : AppCompatActivity() {
     private fun setupViewPager() {
         val adapter: TabsAdapter =  TabsAdapter(supportFragmentManager)
         adapter.addFragment(FeedFragment(), "Feed")
-        adapter.addFragment(LeaderFragment(), "LeaderBoard")
         adapter.addFragment(RecycleFragment(), "Recycle")
+        adapter.addFragment(LeaderFragment(), "LeaderBoard")
         viewPager.adapter = adapter
         viewPager.currentItem = 1
         tabs.setupWithViewPager(viewPager)
