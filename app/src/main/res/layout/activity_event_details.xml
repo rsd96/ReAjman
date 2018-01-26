@@ -8,21 +8,39 @@
     tools:context=".EventDetails"
     android:orientation="vertical">
 
+    <FrameLayout
+        android:id="@+id/frame"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
     <ImageView
-        android:layout_marginTop="40dp"
         android:id="@+id/DImage"
         android:layout_gravity="center"
-        android:background="@drawable/test"
         android:scaleType="centerCrop"
         android:layout_width="match_parent"
-        android:layout_height="80dp" />
+        android:layout_height="250dp" />
+
+
+    </FrameLayout>
+
+    <TextView
+        android:id="@+id/DText"
+        android:layout_marginTop="16dp"
+        android:layout_margin="16dp"
+        android:layout_below="@id/frame"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Text"
+        android:textSize="18sp" />
 
     <com.spark.submitbutton.SubmitButton
         android:id="@+id/sButton"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginStart="170dp"
-        android:layout_marginTop="95dp"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_gravity="bottom|end"
+        android:onClick="buttonClick"
         android:text="Join"
         android:textColor="@color/gray"
         android:textStyle="bold"
@@ -30,16 +48,6 @@
         app:sub_btn_duration="1500"
         app:sub_btn_line_color="@android:color/holo_green_dark"
         app:sub_btn_ripple_color="@android:color/holo_green_light"
-        app:sub_btn_tick_color="@color/white"
-        android:onClick="buttonClick"
-        android:layout_marginLeft="170dp" />
-
-    <TextView
-        android:id="@+id/DText"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="250dp"
-        android:text="Text"
-        android:textSize="18sp" />
+        app:sub_btn_tick_color="@color/white" />
 
 </RelativeLayout>

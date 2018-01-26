@@ -22,7 +22,7 @@ public class EventsFragment extends Fragment {
     RecyclerView.LayoutManager layoutManager;
     ArrayList<Event> list = new ArrayList<>();
 
-    int [] image_ID = {R.drawable.test, R.drawable.test1, R.drawable.test2, R.drawable.test3, R.drawable.test4};
+    int [] image_ID = {R.drawable.beach, R.drawable.slider1, R.drawable.building};
     String [] name;
 
     @Nullable
@@ -34,7 +34,6 @@ public class EventsFragment extends Fragment {
     @Override
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-
 
         int count = 0;
 
@@ -48,7 +47,7 @@ public class EventsFragment extends Fragment {
         }
 
         recyclerView = view.findViewById(R.id.rView);
-        layoutManager = new LinearLayoutManager(this);
+        layoutManager = new LinearLayoutManager(getActivity().getApplicationContext());
         recyclerView.setLayoutManager(layoutManager);
         recyclerView.setHasFixedSize(true);
 

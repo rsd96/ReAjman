@@ -19,7 +19,6 @@
         <ImageView
             android:id="@+id/eventImage"
             android:layout_marginTop="4dp"
-            android:background="@drawable/test"
             android:scaleType="centerCrop"
             android:layout_weight="1"
             android:layout_width="350dp"

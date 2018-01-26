@@ -27,6 +27,8 @@ class MainActivity : AppCompatActivity() {
 
         setSupportActionBar(toolbar)
 
+        actionBar?.setDisplayShowTitleEnabled(false)
+
         if (auth != null) {
             auth!!.signInWithEmailAndPassword(email, pass).addOnCompleteListener {
                 //user.text = auth!!.currentUser!!.email
@@ -43,7 +45,7 @@ class MainActivity : AppCompatActivity() {
         tabs.setTabTextColors(
                 ContextCompat.getColor(this, android.R.color.black),
                 ContextCompat.getColor(this, android.R.color.black)
-        );
+        )
 
 
         tabs.addOnTabSelectedListener(object: TabLayout.OnTabSelectedListener {
@@ -78,8 +80,7 @@ class MainActivity : AppCompatActivity() {
         val adapter: TabsAdapter =  TabsAdapter(supportFragmentManager)
         adapter.addFragment(FeedFragment(), "Feed")
         adapter.addFragment(RecycleFragment(), "Recycle")
-        adapter.addFragment(LeaderFragment(), "LeaderBoard")
-        adapter.addFragment(LeaderFragment(), "Events")
+        adapter.addFragment(EventsFragment(), "Events")
         viewPager.adapter = adapter
         viewPager.currentItem = 1
         tabs.setupWithViewPager(viewPager)

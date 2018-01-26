@@ -1,5 +1,6 @@
 package com.rsd96.reajman
 
+import android.content.Intent
 import android.graphics.Color
 import android.os.Bundle
 import android.support.v4.app.Fragment
@@ -47,7 +48,25 @@ class RecycleFragment: Fragment() {
                     TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
                 }
             })
+
+
+            dbref.child("bags").addValueEventListener(object : ValueEventListener {
+                override fun onDataChange(snap: DataSnapshot?) {
+                    for (x in snap?.children!!) {
+                        if(x.child("bagId").getValue() == "28304")
+                            cv_green.visibility = View.VISIBLE
+                    }
+                }
+
+                override fun onCancelled(p0: DatabaseError?) {
+                    TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+                }
+            })
         }
+
+        cv_points.setOnClickListener(View.OnClickListener { view ->
+            startActivity(Intent(activity.applicationContext, LeaderActivity::class.java))
+        })
 
 
         lineChart.setDragEnabled(true)

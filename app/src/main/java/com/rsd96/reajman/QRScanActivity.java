@@ -79,8 +79,8 @@ public class QRScanActivity extends AppCompatActivity {
                 WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView(R.layout.activity_scanner);
 
-        cameraPreview = findViewById(R.id.cameraPreview);
-        txtResult = findViewById(R.id.textResult);
+        cameraPreview = (SurfaceView) findViewById(R.id.cameraPreview);
+        txtResult = (TextView) findViewById(R.id.textResult);
 
         barcodeDetector = new BarcodeDetector.Builder(this)
                 .setBarcodeFormats(Barcode.QR_CODE)
