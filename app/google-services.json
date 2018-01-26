@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "884875850349",
+    "firebase_url": "https://re-ajman.firebaseio.com",
+    "project_id": "re-ajman",
+    "storage_bucket": "re-ajman.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:884875850349:android:b5e7a3106b5ec264",
+        "android_client_info": {
+          "package_name": "com.rsd96.reajman"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "884875850349-2ejjd502lt0c0uj0h24hmqhvplodp8q4.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.rsd96.reajman",
+            "certificate_hash": "8571f5414325af242a7ae4358932b5a206f804f8"
+          }
+        },
+        {
+          "client_id": "884875850349-4cegka7du6md4nn6ag2d7ua1sghnldag.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBg1LBkd9wLMWCECMPpBw_jb9oaf8X6Bcw"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "884875850349-4cegka7du6md4nn6ag2d7ua1sghnldag.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
