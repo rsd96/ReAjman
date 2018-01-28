@@ -10,6 +10,7 @@
 
     <Button
         android:id="@+id/button"
+        android:background="#ef6c00"
         android:layout_width="260dp"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
@@ -36,6 +37,7 @@
         android:layout_marginTop="8dp"
         android:textAlignment="center"
         android:textSize="20sp"
+        android:textColor="@android:color/white"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -44,7 +46,7 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.582" />
 
-    <io.netopen.hotbitmapgg.library.view.RingProgressBar
+    <ProgressBar
         android:id="@+id/progressBar1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -58,37 +60,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.615"
-        app:max="100"
-        app:ringColor="@color/colorPrimary"
-        app:ringProgressColor="@color/colorPrimaryDark"
-        app:ringWidth="3dp"
-        app:style="STROKE"
-        app:textColor="@color/colorPrimaryDark"
-        app:textIsShow="true"
-        app:textSize="16sp" />
-
-    <io.netopen.hotbitmapgg.library.view.RingProgressBar
-        android:id="@+id/progressBar2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="8dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:visibility="invisible"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.625"
-        app:max="100"
-        app:ringColor="@color/colorPrimary"
-        app:ringProgressColor="@color/colorPrimaryDark"
-        app:ringWidth="3dp"
-        app:style="FILL"
-        app:textColor="@color/colorPrimaryDark"
-        app:textIsShow="true"
-        app:textSize="16sp" />
+         />
 
     <ImageView
         android:id="@+id/preview"

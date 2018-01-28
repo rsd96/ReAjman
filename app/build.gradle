@@ -46,6 +46,7 @@ dependencies {
     implementation 'com.ibm.watson.developer_cloud:android-sdk:0.4.2'
     implementation 'com.squareup.picasso:picasso:2.5.2'
     compile 'com.github.HotBitmapGG:RingProgressBar:V1.2.2'
+    compile 'com.github.florent37:viewanimator:1.0.5'
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'com.android.support.test:runner:1.0.1'
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.1'

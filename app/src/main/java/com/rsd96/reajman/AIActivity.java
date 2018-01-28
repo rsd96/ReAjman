@@ -1,16 +1,14 @@
 package com.rsd96.reajman;
 
-import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.os.AsyncTask;
 import android.os.Bundle;
-import android.os.Handler;
-import android.os.Message;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import com.ibm.watson.developer_cloud.android.library.camera.CameraHelper;
@@ -26,8 +24,6 @@ import org.json.JSONObject;
 
 import java.io.File;
 
-import io.netopen.hotbitmapgg.library.view.RingProgressBar;
-
 /**
  * Created by Ramshad on 1/27/18.
  */
@@ -39,25 +35,25 @@ public class AIActivity  extends AppCompatActivity {
     private JSONObject object;
     private TextView detectedObjects;
     final StringBuffer output = new StringBuffer();
-    private ImageView preview;
-    Integer imageID;
+    //private ImageView preview;
+    //Integer imageID;
 
-    RingProgressBar progressBar1, progressBar2;
-    int progress = 0;
-
-    @SuppressLint("HandlerLeak")
-    Handler handler = new Handler(){
-        @Override
-        public void handleMessage(Message msg) {
-            if(msg.what == 0){
-                if(progress < 100){
-                    progress++;
-                    progressBar1.setProgress(progress);
-                    progressBar2.setProgress(progress);
-                }
-            }
-        }
-    };
+    ProgressBar progressBar1;
+//    int progress;
+//
+//    @SuppressLint("HandlerLeak")
+//    Handler handler = new Handler(){
+//        @Override
+//        public void handleMessage(Message msg) {
+//            if(msg.what == 0){
+//                if(progress < 100){
+//                    progress++;
+//                    progressBar1.setProgress(progress);
+//                    progressBar2.setProgress(progress);
+//                }
+//            }
+//        }
+//    };
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -71,35 +67,37 @@ public class AIActivity  extends AppCompatActivity {
 
         helper = new CameraHelper(this);
 
-        preview = (ImageView) findViewById(R.id.preview);
-        progressBar1 = (RingProgressBar) findViewById(R.id.progressBar1);
-        progressBar2 = (RingProgressBar) findViewById(R.id.progressBar2);
+        //preview = (ImageView) findViewById(R.id.preview);
+        progressBar1 = (ProgressBar) findViewById(R.id.progressBar1);
+        //progressBar2 = (RingProgressBar) findViewById(R.id.progressBar2);
 
-        progressBar1.setProgress(0);
-        progressBar2.setProgress(0);
+//        progress = 0;
+//
+//        progressBar1.setProgress(0);
+//        progressBar2.setProgress(0);
 
-        progressBar1.setOnProgressListener(new RingProgressBar.OnProgressListener() {
-            @Override
-            public void progressToComplete() {
-                progressBar2.setVisibility(View.INVISIBLE);
-                preview.setImageResource(R.mipmap.watsonimage);
-                //output.append("The item is: Recyclable.").append("\n").append("The item is of category: Can");
-            }
-        });
-
-        new Thread(new Runnable() {
-            @Override
-            public void run() {
-                for (int i = 0; i < 100; i++) {
-                    try{
-                        Thread.sleep(80);
-                        handler.sendEmptyMessage(0);
-                    } catch (Exception e){
-                        e.printStackTrace();
-                    }
-                }
-            }
-        }).start();
+//        progressBar1.setOnProgressListener(new RingProgressBar.OnProgressListener() {
+//            @Override
+//            public void progressToComplete() {
+//                progressBar2.setVisibility(View.INVISIBLE);
+//                //preview.setImageResource(R.mipmap.watsonimage);
+//                //output.append("The item is: Recyclable.").append("\n").append("The item is of category: Can");
+//            }
+//        });
+//
+//        new Thread(new Runnable() {
+//            @Override
+//            public void run() {
+//                for (int i = 0; i < 100; i++) {
+//                    try{
+//                        Thread.sleep(90);
+//                        handler.sendEmptyMessage(0);
+//                    } catch (Exception e){
+//                        e.printStackTrace();
+//                    }
+//                }
+//            }
+//        }).start();
     }
 
     public void takePicture(View view) {
@@ -110,10 +108,10 @@ public class AIActivity  extends AppCompatActivity {
     protected void onActivityResult(final int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
         if(requestCode == CameraHelper.REQUEST_IMAGE_CAPTURE) {
-            progressBar2.setVisibility(View.VISIBLE);
+            progressBar1.setVisibility(View.VISIBLE);
             final Bitmap photo = helper.getBitmap(resultCode);
             final File photoFile = helper.getFile(resultCode);
-            ImageView preview = (ImageView) findViewById(R.id.preview);
+            final ImageView preview = (ImageView) findViewById(R.id.preview);
             preview.setImageBitmap(photo);
 
             AsyncTask.execute(new Runnable() {
@@ -157,8 +155,8 @@ public class AIActivity  extends AppCompatActivity {
                     runOnUiThread(new Runnable() {
                         @Override
                         public void run() {
-                            detectedObjects = (TextView) findViewById(R.id.detected_objects);
-                            detectedObjects.setText(output);
+                            progressBar1.setVisibility(View.GONE);
+                            preview.setImageResource(R.mipmap.watsonimage);
                         }
                     });
 

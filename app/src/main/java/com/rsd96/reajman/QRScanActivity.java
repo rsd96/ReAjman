@@ -4,6 +4,7 @@ package com.rsd96.reajman;
 import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
+import android.support.constraint.ConstraintLayout;
 import android.support.v4.app.ActivityCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.util.SparseArray;
@@ -13,6 +14,7 @@ import android.view.Window;
 import android.view.WindowManager;
 import android.widget.TextView;
 
+import com.github.florent37.viewanimator.ViewAnimator;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.android.gms.vision.CameraSource;
@@ -78,6 +80,14 @@ public class QRScanActivity extends AppCompatActivity {
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
                 WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView(R.layout.activity_scanner);
+
+
+        ConstraintLayout layout = (ConstraintLayout) findViewById(R.id.cl_qr);
+        ViewAnimator
+        .animate(layout)
+                .dp().translationY(1000, 0)
+                .duration(1000)
+                .start();
 
         cameraPreview = (SurfaceView) findViewById(R.id.cameraPreview);
         txtResult = (TextView) findViewById(R.id.textResult);
